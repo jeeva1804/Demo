@@ -1,0 +1,730 @@
+{
+	"info": {
+		"_postman_id": "00af99ff-0954-4385-9985-675ca7cbf9fd",
+		"name": "Verification-RestAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10288748"
+	},
+	"item": [
+		{
+			"name": "shieldtemplate",
+			"item": [
+				{
+					"name": "create shield template",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "DevKey",
+								"value": "4b5555760c9f2f315a49b71efc0b3d27",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n     \"ShieldTemplateName\": \"SampleTemplate\", \n     \"Items\":[ \n          { \n               \"Name\":\"app.securityCompilation.android.buildNativeHashTable\",\n               \"Value\":\"1\" \n          }, \n          { \n               \"Name\":\"app.securityCompilation.android.secureStrings\", \n               \"Value\":\"1\" \n          } \n     ], \n     \"PlatformId\": 1 \n}"
+						},
+						"url": {
+							"raw": "https://sta-restapi.quixxi.com/api/v1/shieldtemplate",
+							"host": [
+								"https://sta-restapi.quixxi.com/api"
+							],
+							"path": [
+								"v1",
+								"shieldtemplate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit shield template",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "DevKey",
+								"type": "text",
+								"value": "4b5555760c9f2f315a49b71efc0b3d27"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n     \"ShieldTemplateName\": \"Template\",\n     \"ShieldTemplateId\" :  1,\n     \"Items\":[ \n          { \n               \"Name\":\"app.securityCompilation.android.buildNativeHashTable\",\n               \"Value\":\"1\" \n          }, \n          { \n               \"Name\":\"app.securityCompilation.android.secureStrings\", \n               \"Value\":\"1\" \n          } \n     ], \n     \"PlatformId\": 1 \n}"
+						},
+						"url": {
+							"raw": "https://sta-restapi.quixxi.com/api/v1/shieldtemplate",
+							"host": [
+								"https://sta-restapi.quixxi.com/api"
+							],
+							"path": [
+								"v1",
+								"shieldtemplate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "clone template",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "DevKey",
+								"value": "4b5555760c9f2f315a49b71efc0b3d27",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n     \"SourceShieldTemplateId\": 0, \n     \"NewShieldTemplateName\": \"NewTemplate\", \n     \"PlatformId\": 1 \n}"
+						},
+						"url": {
+							"raw": "https://sta-restapi.quixxi.com/api/v1/shieldtemplate/clone",
+							"host": [
+								"https://sta-restapi.quixxi.com/api"
+							],
+							"path": [
+								"v1",
+								"shieldtemplate",
+								"clone"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Templates",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "DevKey",
+								"value": "4b5555760c9f2f315a49b71efc0b3d27",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://sta-restapi.quixxi.com/api/v1/shieldtemplate/",
+							"host": [
+								"https://sta-restapi.quixxi.com/api"
+							],
+							"path": [
+								"v1",
+								"shieldtemplate",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete template",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "DevKey",
+								"value": "4b5555760c9f2f315a49b71efc0b3d27",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://sta-restapi.quixxi.com/api/v1/shieldtemplate/{templateId}",
+							"host": [
+								"https://sta-restapi.quixxi.com/api"
+							],
+							"path": [
+								"v1",
+								"shieldtemplate",
+								"{templateId}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Shield Template Config",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "DevKey",
+								"value": "4b5555760c9f2f315a49b71efc0b3d27",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://sta-restapi.quixxi.com/api/v1/shieldtemplate?id=0&fetchEditableConfigsOnly=true",
+							"host": [
+								"https://sta-restapi.quixxi.com/api"
+							],
+							"path": [
+								"v1",
+								"shieldtemplate"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "0"
+								},
+								{
+									"key": "fetchEditableConfigsOnly",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DefaultConfig",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "DevKey",
+								"value": "4b5555760c9f2f315a49b71efc0b3d27",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://sta-restapi.quixxi.com/api/v1/shieldtemplate/Default?fetchEditableConfigsOnly=true&nameSpace=app.securityCompilation.android",
+							"host": [
+								"https://sta-restapi.quixxi.com/api"
+							],
+							"path": [
+								"v1",
+								"shieldtemplate",
+								"Default"
+							],
+							"query": [
+								{
+									"key": "fetchEditableConfigsOnly",
+									"value": "true"
+								},
+								{
+									"key": "nameSpace",
+									"value": "app.securityCompilation.android"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CreateApp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "DevKey",
+						"value": "4b5555760c9f2f315a49b71efc0b3d27",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "Application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\"Name\" : \"TestApp\" \n}"
+				},
+				"url": {
+					"raw": "https://sta-restapi.quixxi.com/api/v1/application",
+					"host": [
+						"https://sta-restapi.quixxi.com/api"
+					],
+					"path": [
+						"v1",
+						"application"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListApps",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "DevKey",
+						"value": "4b5555760c9f2f315a49b71efc0b3d27",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://sta-restapi.quixxi.com/api/v1/application/list",
+					"host": [
+						"https://sta-restapi.quixxi.com/api"
+					],
+					"path": [
+						"v1",
+						"application",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetShieldConfig",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "DevKey",
+						"value": "4b5555760c9f2f315a49b71efc0b3d27",
+						"type": "text"
+					},
+					{
+						"key": "AppKey",
+						"value": "75ad76a6-cd3d-473c-829b-6f06adaf5ff1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://sta-restapi.quixxi.com/api/v1/protection/configurations?PlatformId=1",
+					"host": [
+						"https://sta-restapi.quixxi.com/api"
+					],
+					"path": [
+						"v1",
+						"protection",
+						"configurations"
+					],
+					"query": [
+						{
+							"key": "PlatformId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveShieldConfig",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "DevKey",
+						"value": "4b5555760c9f2f315a49b71efc0b3d27",
+						"type": "text"
+					},
+					{
+						"key": "AppKey",
+						"value": "75ad76a6-cd3d-473c-829b-6f06adaf5ff1",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"PlatformId\": 1, \n    \"Items\":[{\n        \"Name\": \"app.securityCompilation.android.reflection\",\n        \"Value\": \"0\",\n        \"Title\": \"Use reflection\",\n        \"GroupTitle\": \"Reverse Engineering Protection\",\n        \"GroupDescription\": \"Protects the app from reverse engineering\",\n        \"Description\": \"This option is set to OFF state by default and can be modified. If this option is ON, Quixxi Shield will use the reflection concept to replace field references and method calls. This will help increase the complexity to understand the code and its flow.\"\n    },\n    {\n        \"Name\": \"app.securityCompilation.android.removeDebugLogs\",\n        \"Value\": \"1\",\n        \"Title\": \"Remove app logs\",\n        \"GroupTitle\": \"Reverse Engineering Protection\",\n        \"GroupDescription\": \"Protects the app from reverse engineering\",\n        \"Description\": \"This option is set to ON state by default and can be modified. This option applies ONLY to native apps. If this option is ON, Quixxi Shield will remove the logs used in the app that might favor hacking attempts. Logs include the output due to Log.i(), Log.d(), Log.v() and System.out.println() calls.\"\n    },\n    {\n        \"Name\": \"app.securityCompilation.android.copyPasteProtection\",\n        \"Value\": \"0\",\n        \"Title\": \"Disable Copy & Paste Functionality\",\n        \"GroupTitle\": \"Runtime App Protection\",\n        \"GroupDescription\": \"Protects the app during runtime \",\n        \"Description\": \"This option is set to OFF state by default and can be modified. This option applies ONLY to native apps. If this option is ON, Quixxi Shield will search the EditText elements in the app. When found, Quixxi Shield will insert the logic to prevent copying and pasting the content, both within and outside the app.IMPORTANT - The copy and paste protection applies ONLY when the copied content is taken from EditText elements.\"\n    },\n    {\n        \"Name\": \"app.securityCompilation.android.disableScreenshots\",\n        \"Value\": \"0\",\n        \"Title\": \"Disable screenshots capture & screen sharing\",\n        \"GroupTitle\": \"Runtime App Protection\",\n        \"GroupDescription\": \"Protects the app during runtime \",\n        \"Description\": \"This option is set to OFF state by default and can be modified. If this option is ON, Quixxi Shield will insert the logic to prevent the app user from taking screenshot and performing screen sharing. If the user will try to take screenshots then a \\\"Couldn't capture screenshot\\\" message will be prompted. Instead, if the user will try to share the screen he will get a total black screen for the mirrored one. Moreover, this same option will blur the app preview when the app is put in background .\"\n    },\n    {\n        \"Name\": \"app.securityCompilation.android.rootDetection\",\n        \"Value\": \"0\",\n        \"Title\": \"Terminate the app when running in rooted device\",\n        \"GroupTitle\": \"Runtime App Protection\",\n        \"GroupDescription\": \"Protects the app during runtime \",\n        \"Description\": \"This option is set to OFF state by default and can be modified. If this option is ON, Quixxi Shield will insert the logic to terminate the app when executed in a rooted device. This option can be used to stop the app regardless of the store from where it was downloaded and installed. \"\n    },\n    {\n        \"Name\": \"app.securityCompilation.android.playStoreDetection\",\n        \"Value\": \"0\",\n        \"Title\": \"Allow apps installed from Google Play, Samsung and Amazon stores to bypass the root protection\",\n        \"GroupTitle\": \"Runtime App Protection\",\n        \"GroupDescription\": \"Protects the app during runtime \",\n        \"Description\": \"This option is set to OFF state by default and can be modified only when the previous “Terminate the app when the app is running in the rooted device” is ON. If this option is ON, Quixxi Shield will insert logics to terminate the app exclusively on those devices which did NOT install the app from Google Play, Samsung or Amazon store.IMPORTANT - This option must be chosen VERY carefully. We introduced it to let all the customers who downloaded from safe markets use the app on rooted devices. This is extremely important for paid apps, because customers who are denied the access after a regular purchase can destroy its reputation on the markets. On the other side please consider that the possibility itself to run the app on rooted devices – even though only under controlled conditions – will make you fail advanced security assessments, especially if the data handled by the app are sensitive [as in fintech, healthcare, etc.].\"\n    },\n    {\n        \"Name\": \"app.securityCompilation.android.emulatorDetection\",\n        \"Value\": \"0\",\n        \"Title\": \"Terminate the app when connected to the emulator\",\n        \"GroupTitle\": \"Runtime App Protection\",\n        \"GroupDescription\": \"Protects the app during runtime \",\n        \"Description\": \"This option is set to OFF state by default and can be modified. If this option is ON, Quixxi Shield will insert the logic to terminate the app when it is running on the emulator\"\n    },\n    {\n        \"Name\": \"app.securityCompilation.android.ADBBackup\",\n        \"Value\": \"0\",\n        \"Title\": \"Disable ADB Backup\",\n        \"GroupTitle\": \"Runtime App Protection\",\n        \"GroupDescription\": \"Protects the app during runtime \",\n        \"Description\": \"This option is set to OFF state by default and it can be modified. If this option is ON, Quixxi shield will set “allowBackup” flag to false. If this attribute is set to false, no backup or restore of the application will ever be performed, even by a full-system backup that would otherwise cause all application data to be saved via adb.\"\n    },\n    {\n        \"Name\": \"app.securityCompilation.android.debuggerDetection\",\n        \"Value\": \"0\",\n        \"Title\": \"Terminate the app when running with the debugger attached\",\n        \"GroupTitle\": \"Tamper Protection\",\n        \"GroupDescription\": \"Prevents tampering for the application\",\n        \"Description\": \"This option is set to OFF state by default and can be modified. If this option is ON, Quixxi Shield will insert the logic to immediately terminate the app whenever a debugger is attached.\"\n    },\n    {\n        \"Name\": \"app.securityCompilation.android.encryptResourceFiles\",\n        \"Value\": \"0\",\n        \"Title\": \"Encrypt the \\\"assets\\\" folder\",\n        \"GroupTitle\": \"Tamper Protection\",\n        \"GroupDescription\": \"Prevents tampering for the application\",\n        \"Description\": \"  This option is set to OFF state by default and can be modified. It applies ONLY to Cordova and React Native apps. If this option is ON, Quixxi Shield will automatically encrypt the files contained in the “assets” folder for Cordova and React Native apps, inserting as well the logic to decrypt them at runtime.    \"\n    },\n    {\n        \"Name\": \"app.securityCompilation.android.developerSignatureVerification\",\n        \"Value\": \"0\",\n        \"Title\": \"Terminate the app when “USB debugging” is enabled\",\n        \"GroupTitle\": \"Tamper Protection\",\n        \"GroupDescription\": \"Prevents tampering for the application\",\n        \"Description\": \"This option is set to OFF state by default and can be modified. If this option is ON, Quixxi Shield will terminate the app whenever the “USB debugging” option is enabled on the device.\"\n    },\n    {\n        \"Name\": \"app.securityCompilation.android.detectUnknownSourcesInstallation\",\n        \"Value\": \"0\",\n        \"Title\": \"Terminate the app if installation from “Unknown Sources” is enabled\",\n        \"GroupTitle\": \"Tamper Protection\",\n        \"GroupDescription\": \"Prevents tampering for the application\",\n        \"Description\": \"This option is set to OFF state by default and can be modified. If this option is ON, Quixxi Shield will terminate the app when the installation from “Unknown Sources” option is enabled in the device settings. “Unknown Sources” is not anymore available on phones equipped with Android 8 due to the new Google security policies.\"\n    },\n    {\n        \"Name\": \"app.securityCompilation.android.sslPinning\",\n        \"Value\": \"0\",\n        \"Title\": \"SSL certificate validation via SSL pinning\",\n        \"GroupTitle\": \"Secure Communication\",\n        \"GroupDescription\": \"Provide secure connection for external URLs accessed from the app\",\n        \"Description\": \"This option is set to OFF state by default and can be modified. This option applies ONLY to native apps. If this option is ON, Quixxi will hardcode the certificate used by the mobile app [i.e. the client] to authenticate the server. In this way the app can ignore the device trust store and rely only on the assigned one[s]. The developer will enter the URLs making use of the certificates to be verified. Quixxi will retrieve their public keys and include them within the logic needed to increase the security level of the app data in transit.\"\n    },\n    {\n        \"Name\": \"app.securityCompilation.android.sslPinningUrls\",\n        \"Value\": null,\n        \"Title\": \"app.securityCompilation.android.sslPinningUrls\",\n        \"GroupTitle\": \"Secure Communication\",\n        \"GroupDescription\": \"Provide secure connection for external URLs accessed from the app\",\n        \"Description\": \"This option should be used in combination with option \\\"app.securityCompilation.android.sslPinning\\\". This option is used to pass the Urls to be pinned using SSL Pinning option.\"\n    },\n    {\n        \"Name\": \"app.securityCompilation.android.removeUnusedResources\",\n        \"Value\": \"1\",\n        \"Title\": \"Remove unused images\",\n        \"GroupTitle\": \"Optimization and Scope\",\n        \"GroupDescription\": \"Optimizes utilization of resources used\",\n        \"Description\": \"This option is set to ON state by default and can be modified. This option applies ONLY to native apps. If this option is ON, Quixxi Shield will search and remove the unused images in the “res” folder of the native app, thus reducing also its size.\"\n    },\n    {\n        \"Name\": \"app.securityCompilation.android.excludePackage\",\n        \"Value\": \"0\",\n        \"Title\": \"Exclude packages/classes from Quixxi Shield action\",\n        \"GroupTitle\": \"Optimization and Scope\",\n        \"GroupDescription\": \"Optimizes utilization of resources used\",\n        \"Description\": \"This option is set to OFF state by default and can be modified. If this option is ON, the developer can enter the packages or classes to be excluded from Quixxi Shield action. Packages and classes must be separated by newlines and entered with their full names, e.g. com.quixxi.example1 for packages and com.quixxi.example6.MyNewClass for classes.\"\n    },\n    {\n        \"Name\": \"app.securityCompilation.android.excludePackageList\",\n        \"Value\": null,\n        \"Title\": \"app.securityCompilation.android.excludePackageList\",\n        \"GroupTitle\": \"Optimization and Scope\",\n        \"GroupDescription\": \"Optimizes utilization of resources used\",\n        \"Description\": \"This option is set to OFF state by default and can be modified. If this option is ON, the developer can enter the packages or classes to be excluded from Quixxi Shield action. Packages and classes must be separated by newlines and entered with their full names, e.g. com.quixxi.example1 for packages and com.quixxi.example6.MyNewClass for classes.\"\n    },\n    {\n    \t\"Name\": \"app.securityCompilation.android.quixxiSignYourApk\",\n    \t\"Value\": \"0\"\n    }\n\n]\n}"
+				},
+				"url": {
+					"raw": "https://sta-restapi.quixxi.com/api/v1/protection/configurations",
+					"host": [
+						"https://sta-restapi.quixxi.com/api"
+					],
+					"path": [
+						"v1",
+						"protection",
+						"configurations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Protect App",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "DevKey",
+						"value": "4b5555760c9f2f315a49b71efc0b3d27",
+						"type": "text"
+					},
+					{
+						"key": "AppKey",
+						"value": "75ad76a6-cd3d-473c-829b-6f06adaf5ff1",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "SecurityFile",
+							"type": "file",
+							"src": "/C:/Users/JeevanandhamDuraisam/source/Quixxi/TestFilesQuixxi/TestFilesQuixxi/apk-extractor-1-0-5-en-android.apk"
+						},
+						{
+							"key": "ShieldTemplateId",
+							"value": "55",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://sta-restapi.quixxi.com/api/v1/protection",
+					"host": [
+						"https://sta-restapi.quixxi.com/api"
+					],
+					"path": [
+						"v1",
+						"protection"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetStatus",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "DevKey",
+						"value": "4b5555760c9f2f315a49b71efc0b3d27",
+						"type": "text"
+					},
+					{
+						"key": "AppKey",
+						"value": "75ad76a6-cd3d-473c-829b-6f06adaf5ff1",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://sta-restapi.quixxi.com/api/v1/shield/status?compilationid=0000",
+					"host": [
+						"https://sta-restapi.quixxi.com/api"
+					],
+					"path": [
+						"v1",
+						"shield",
+						"status"
+					],
+					"query": [
+						{
+							"key": "compilationid",
+							"value": "0000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "download app",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "DevKey",
+						"value": "4b5555760c9f2f315a49b71efc0b3d27",
+						"type": "text"
+					},
+					{
+						"key": "AppKey",
+						"value": "75ad76a6-cd3d-473c-829b-6f06adaf5ff1",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/zip",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://sta-restapi.quixxi.com/api/v1/protection/package?platformId=1",
+					"host": [
+						"https://sta-restapi.quixxi.com/api"
+					],
+					"path": [
+						"v1",
+						"protection",
+						"package"
+					],
+					"query": [
+						{
+							"key": "platformId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete app binaries",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "AppKey",
+						"value": "75ad76a6-cd3d-473c-829b-6f06adaf5ff1",
+						"type": "text"
+					},
+					{
+						"key": "DevKey",
+						"value": "4b5555760c9f2f315a49b71efc0b3d27",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sta-restapi.quixxi.com/api/v1/application/ApplicationBinaries?platformId=1",
+					"host": [
+						"https://sta-restapi.quixxi.com/api"
+					],
+					"path": [
+						"v1",
+						"application",
+						"ApplicationBinaries"
+					],
+					"query": [
+						{
+							"key": "platformId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "shield singing credentails - Android",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "AppKey",
+						"value": "75ad76a6-cd3d-473c-829b-6f06adaf5ff1",
+						"type": "text"
+					},
+					{
+						"key": "DevKey",
+						"value": "4b5555760c9f2f315a49b71efc0b3d27",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "PlatformId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "KeyFile",
+							"value": "",
+							"type": "file"
+						},
+						{
+							"key": "QuixxiKeyStorePassword",
+							"value": "KeyStorePassword",
+							"type": "text"
+						},
+						{
+							"key": "QuixxiKeyAlias",
+							"value": "common",
+							"type": "text"
+						},
+						{
+							"key": "QuixxiKeyPassword",
+							"value": "KeyPassword",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://sta-restapi.quixxi.com//api/v1/protection/configurations/signingcredentials",
+					"host": [
+						"https://sta-restapi.quixxi.com/"
+					],
+					"path": [
+						"api",
+						"v1",
+						"protection",
+						"configurations",
+						"signingcredentials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "shield signing credentials iOS",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "AppKey",
+						"value": "75ad76a6-cd3d-473c-829b-6f06adaf5ff1",
+						"type": "text"
+					},
+					{
+						"key": "DevKey",
+						"value": "4b5555760c9f2f315a49b71efc0b3d27",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "PlatformId",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "P12File",
+							"value": "",
+							"type": "file"
+						},
+						{
+							"key": "MobileProvision",
+							"value": "",
+							"type": "file"
+						},
+						{
+							"key": "QuixxiP12Password",
+							"value": "P12Password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://sta-restapi.quixxi.com//api/v1/protection/configurations/signingcredentials",
+					"host": [
+						"https://sta-restapi.quixxi.com/"
+					],
+					"path": [
+						"api",
+						"v1",
+						"protection",
+						"configurations",
+						"signingcredentials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pull Activity Logs",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "DevKey",
+						"value": "4b5555760c9f2f315a49b71efc0b3d27",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://sta-restapi.quixxi.com/api/DeveloperActivities?From=2021-07-27&To=2021-07-28&PageSize=14&PageNumber=1&SortDirection=desc",
+					"host": [
+						"https://sta-restapi.quixxi.com/api"
+					],
+					"path": [
+						"DeveloperActivities"
+					],
+					"query": [
+						{
+							"key": "From",
+							"value": "2021-07-27"
+						},
+						{
+							"key": "To",
+							"value": "2021-07-28"
+						},
+						{
+							"key": "PageSize",
+							"value": "14"
+						},
+						{
+							"key": "PageNumber",
+							"value": "1"
+						},
+						{
+							"key": "SortDirection",
+							"value": "desc"
+						},
+						{
+							"key": "email",
+							"value": "r.balan@lakeba.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
